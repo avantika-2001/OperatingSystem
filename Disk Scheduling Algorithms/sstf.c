@@ -2,16 +2,16 @@
 #include<stdlib.h>
 int main()
 {
-    int RQ[100],i,n,TotalHeadMoment=0,initial,count=0;
+    int RQ[100],i,n,TotalHeadMoment=0,head,count=0;
     printf("Enter the number of Requests\n");
     scanf("%d",&n);
     printf("Enter the Requests sequence\n");
     for(i=0;i<n;i++)
      scanf("%d",&RQ[i]);
-    printf("Enter initial head position\n");
-    scanf("%d",&initial);
-	int seq[n+1];
-	seq[0]=initial;
+    printf("Enter head head position\n");
+    scanf("%d",&head);
+    int seq[n+1];
+    seq[0]=head;
     int k=1;
     // logic for sstf disk scheduling
     
@@ -21,7 +21,7 @@ int main()
         int min=1000,d,index;
         for(i=0;i<n;i++)
         {
-           d=abs(RQ[i]-initial);
+           d=abs(RQ[i]-head);
            if(min>d)
            {
                min=d;
@@ -30,7 +30,7 @@ int main()
            
         }
         TotalHeadMoment=TotalHeadMoment+min;
-        initial=RQ[index];
+        head=RQ[index];
 		seq[k++]=RQ[index];
         // 1000 is for max
         // you can use any number
